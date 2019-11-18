@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 
-export class App extends Component {
-    state = {
-        
-    }
+export class Waiting extends Component {
     render() {
         return (
             <div>
-                
+                Waiting 3
             </div>
         )
     }
 }
 
-export default App
+export default Waiting;

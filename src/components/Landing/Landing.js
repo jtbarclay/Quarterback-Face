@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 
-export class App extends Component {
-    state = {
-        
-    }
+export class Landing extends Component {
     render() {
         return (
             <div>
-                
+                Landing 1
             </div>
         )
     }
 }
 
-export default App
+export default Landing;

@@ -1,16 +1,13 @@
 import React, { Component } from 'react'
 
-export class App extends Component {
-    state = {
-        
-    }
+export class Comparison extends Component {
     render() {
         return (
             <div>
-                
+                Comparison 5
             </div>
         )
     }
 }
 
-export default App
+export default Comparison;
