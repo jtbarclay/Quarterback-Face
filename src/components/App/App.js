@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Grid, Card, CardContent, CardActions, } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import './App.css';
 
 import Landing from '../Landing/Landing';
 import Upload from '../Upload/Upload';
@@ -21,6 +22,23 @@ const theme = createMuiTheme({
         MuiCardActions: {
             root: {
                 justifyContent: 'space-between',
+            },
+        },
+        MuiCard: {
+            root: {
+                height: 600,
+                marginTop: 100,
+                backgroundColor: '#F3F3F3',
+            }
+        },
+        MuiCardContent: {
+            root: {
+                height: 450,
+            },
+        },
+        MuiStepper: {
+            root: {
+                backgroundColor: '#F3F3F3',
             },
         },
     },
