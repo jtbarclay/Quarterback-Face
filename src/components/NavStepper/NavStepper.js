@@ -5,7 +5,7 @@ export class NavStepper extends Component {
     render() {
 
         function getSteps() {
-            return ['Landing', 'Upload', 'Waiting', 'Individual', 'Comparison'];
+            return ['About', 'Upload', 'Waiting', 'Individual', 'Comparison'];
         }
 
         const steps = getSteps();
