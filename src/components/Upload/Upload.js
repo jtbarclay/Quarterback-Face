@@ -1,15 +1,37 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CardActions, CardContent } from '@material-ui/core';
+import { CardActions, CardContent, CardMedia } from '@material-ui/core';
 import NavButton from '../Buttons/NavButton';
 import NavStepper from '../NavStepper/NavStepper';
+import './Upload.css';
 
 export class Upload extends Component {
+    state = {
+        image: '',
+        img: false,
+    }
+
+    // handler for file upload
+    handleInput = (event) => {
+        console.log(event.target.files[0]);
+        this.setState({
+            image: event.target.files[0],
+            img: URL.createObjectURL(event.target.files[0]),
+        })
+
+    }
+
     render() {
         return (
             <div>
                 <CardContent>
+                    {this.state.img ? (
+                    <CardMedia>
+                        <img src={this.state.img} alt='your face' />
+                    </CardMedia>
+                    ):(
                     <input type='file' name='image' accept='image/*' onChange={this.handleInput} />
+                    )}
                 </CardContent>
                 <CardActions>
                     {/* custom nav buttons */}
