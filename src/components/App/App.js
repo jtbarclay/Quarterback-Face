@@ -44,6 +44,21 @@ const theme = createMuiTheme({
                 backgroundColor: '#F3F3F3',
             },
         },
+        MuiDialogTitle: {
+            root: {
+                backgroundColor: '#F3F3F3',
+            },
+        },
+        MuiDialogContent: {
+            root: {
+                backgroundColor: '#F3F3F3',
+            },
+        },
+        MuiDialogActions: {
+            root: {
+                backgroundColor: '#F3F3F3',
+            },
+        },
     },
 });
 

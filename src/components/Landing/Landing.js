@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './Landing.css';
 import { List, ListItem, ListItemIcon, ListItemText, Container, Button } from '@material-ui/core';
 import FootballHelmet from '../Icons/FootballHelmet';
+import About from '../About/About';
 
 function HelmetIcon() {
     return (
@@ -56,10 +57,7 @@ export class Landing extends Component {
                         </ListItemText>
                         </ListItem>
                     </List>
-                    <Button
-                        variant='outlined'
-                        color='secondary'
-                    >What is this?</Button>
+                    <About/>
                 </Container>
             </div>
         )
