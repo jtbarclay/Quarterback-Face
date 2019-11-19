@@ -4,7 +4,7 @@ export class Upload extends Component {
     render() {
         return (
             <div>
-                Upload 2
+                <input type='file' name='image' accept='image/*' onChange={this.handleInput} />
             </div>
         )
     }
