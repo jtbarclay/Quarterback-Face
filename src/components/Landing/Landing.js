@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import './Landing.css';
-import { List, ListItem, ListItemIcon, ListItemText, Container, Button, CardContent, CardActions } from '@material-ui/core';
+import { List, ListItem, ListItemIcon, ListItemText, Container, CardContent, CardActions } from '@material-ui/core';
 import FootballHelmet from '../Icons/FootballHelmet';
 import About from '../About/About';
 import NavButton from '../Buttons/NavButton';

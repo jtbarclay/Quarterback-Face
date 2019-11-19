@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import { Grid, Card, CardContent, CardActions, } from '@material-ui/core';
+import { Grid, Card } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import './App.css';
 
@@ -10,8 +10,6 @@ import Upload from '../Upload/Upload';
 import Waiting from '../Waiting/Waiting';
 import Individual from '../Individual/Individual';
 import Comparison from '../Comparison/Comparison';
-import NavButton from '../Buttons/NavButton';
-import NavStepper from '../NavStepper/NavStepper';
 
 // sets material ui theme
 const theme = createMuiTheme({
