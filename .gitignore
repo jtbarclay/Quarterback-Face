@@ -1,4 +1,5 @@
 .vscode
+.vscode/settings.json
 
 # Mac Auto-Generated Files
 .DS_Store

@@ -4,14 +4,16 @@ import { Grid, Card, CardContent, CardActions, } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import './App.css';
 
+// import components
 import Landing from '../Landing/Landing';
 import Upload from '../Upload/Upload';
 import Waiting from '../Waiting/Waiting';
 import Individual from '../Individual/Individual';
 import Comparison from '../Comparison/Comparison';
 import NavButton from '../Buttons/NavButton';
-import { NavStepper } from '../NavStepper/NavStepper';
+import NavStepper from '../NavStepper/NavStepper';
 
+// sets material ui theme
 const theme = createMuiTheme({
     overrides: {
         MuiButton: {
@@ -22,6 +24,7 @@ const theme = createMuiTheme({
         MuiCardActions: {
             root: {
                 justifyContent: 'space-between',
+                backgroundColor: '#F3F3F3',
             },
         },
         MuiCard: {
@@ -52,6 +55,7 @@ export class App extends Component {
                     <Grid item xs={6}>
                         <Card>
                             <CardContent>
+                                {/* navigate between components */}
                                 {(() => {
                                     switch (this.props.reduxState.navReducer) {
                                         case 0:
@@ -70,6 +74,7 @@ export class App extends Component {
                                 })()}
                             </CardContent>
                             <CardActions>
+                                {/* custom nav buttons */}
                                 <NavButton
                                     text='Prev'
                                     onClick={() => this.props.dispatch({ type: 'PREV_PAGE' })}
