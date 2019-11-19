@@ -9,6 +9,7 @@ export class NavButton extends Component {
                 color='primary'
                 onClick={this.props.onClick}
                 disabled={this.props.disabled}
+                style={this.props.style}
             >
                 <FootballHelmet
                     viewBox='0 0 100 100'
