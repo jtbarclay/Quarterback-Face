@@ -8,11 +8,8 @@ export class Upload extends Component {
     render() {
         return (
             <div>
-<<<<<<< HEAD
-                <input type='file' name='image' accept='image/*' onChange={this.handleInput} />
-=======
                 <CardContent>
-
+                    <input type='file' name='image' accept='image/*' onChange={this.handleInput} />
                 </CardContent>
                 <CardActions>
                     {/* custom nav buttons */}
@@ -20,17 +17,16 @@ export class Upload extends Component {
                         text='Prev'
                         onClick={() => this.props.dispatch({ type: 'PREV_PAGE' })}
                         disabled={this.props.reduxState.navReducer === 0}
-                        style={{visibility: 'visible'}}
+                        style={{ visibility: 'visible' }}
                     />
                     <NavStepper step={this.props.reduxState.navReducer} />
                     <NavButton
                         text='Next'
                         onClick={() => this.props.dispatch({ type: 'NEXT_PAGE' })}
                         disabled={this.props.reduxState.navReducer === 4}
-                        style={{visibility: 'visible'}}
+                        style={{ visibility: 'visible' }}
                     />
                 </CardActions>
->>>>>>> master
             </div>
         )
     }
