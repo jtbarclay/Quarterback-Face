@@ -27,7 +27,7 @@ export class Upload extends Component {
                 <CardContent>
                     {this.state.img ? (
                     <CardMedia>
-                        <img src={this.state.img} alt='your face' />
+                        <img src={this.state.img} alt='userImg' className='userImg' />
                     </CardMedia>
                     ):(
                     <input type='file' name='image' accept='image/*' onChange={this.handleInput} />

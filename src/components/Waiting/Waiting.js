@@ -3,13 +3,15 @@ import { connect } from 'react-redux';
 import { CardActions, CardContent } from '@material-ui/core';
 import NavButton from '../Buttons/NavButton';
 import NavStepper from '../NavStepper/NavStepper';
+import './Waiting.css';
+import logo from './logo.svg';
 
 export class Waiting extends Component {
     render() {
         return (
             <div>
                 <CardContent>
-
+                    <img src={logo} className="App-logo" alt="logo" />
                 </CardContent>
                 <CardActions>
                     {/* custom nav buttons */}
