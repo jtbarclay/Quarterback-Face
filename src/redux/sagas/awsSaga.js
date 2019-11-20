@@ -3,8 +3,10 @@ import axios from 'axios';
 
 function* checkSymmetry(action) {
     try {
+        yield put({ type: 'NEXT_PAGE' });
         const awsResponse = yield axios.post('/api/aws', action.payload);
         yield put({ type: 'SET_SYMMETRY', payload: awsResponse.data});
+        yield put({ type: 'NEXT_PAGE' });
     }
     catch (error) {
         console.log('error sending image to server', error);

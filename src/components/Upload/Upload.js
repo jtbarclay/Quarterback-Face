@@ -22,7 +22,10 @@ export class Upload extends Component {
     }
 
     handleClick = () => {
-        
+        const formData = new FormData();
+        formData.append('fileUpload', this.state.image);
+
+        this.props.dispatch({ type: 'UPLOAD_PICTURE', payload: formData })
     }
 
     render() {
@@ -30,12 +33,12 @@ export class Upload extends Component {
             <div>
                 <CardContent>
                     {this.state.img ? (
-                    <CardMedia>
-                        <img src={this.state.img} alt='userImg' className='userImg' />
-                    </CardMedia>
-                    ):(
-                    <input type='file' name='image' accept='image/*' onChange={this.handleInput} />
-                    )}
+                        <CardMedia>
+                            <img src={this.state.img} alt='userImg' className='userImg' />
+                        </CardMedia>
+                    ) : (
+                            <input type='file' name='image' accept='image/*' onChange={this.handleInput} />
+                        )}
                 </CardContent>
                 <CardActions>
                     {/* custom nav buttons */}
