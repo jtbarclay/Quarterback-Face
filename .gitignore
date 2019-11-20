@@ -1,6 +1,6 @@
 .vscode
 .vscode/settings.json
-
+server/uploads
 # Mac Auto-Generated Files
 .DS_Store
 .DS_STORE/

@@ -19,14 +19,14 @@ export class Waiting extends Component {
                         text='Prev'
                         onClick={() => this.props.dispatch({ type: 'PREV_PAGE' })}
                         disabled={this.props.reduxState.navReducer === 0}
-                        style={{ visibility: 'visible' }}
+                        style={{ visibility: 'hidden' }}
                     />
                     <NavStepper step={this.props.reduxState.navReducer} />
                     <NavButton
                         text='Next'
                         onClick={() => this.props.dispatch({ type: 'NEXT_PAGE' })}
                         disabled={this.props.reduxState.navReducer === 4}
-                        style={{ visibility: 'visible' }}
+                        style={{ visibility: 'hidden' }}
                     />
                 </CardActions>
             </div>

@@ -42,7 +42,7 @@ export class Individual extends Component {
                         text='Prev'
                         onClick={() => this.props.dispatch({ type: 'PREV_PAGE' })}
                         disabled={this.props.reduxState.navReducer === 0}
-                        style={{ visibility: 'visible' }}
+                        style={{ visibility: 'hidden' }}
                     />
                     <NavStepper step={this.props.reduxState.navReducer} />
                     <NavButton
