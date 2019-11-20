@@ -21,6 +21,10 @@ export class Upload extends Component {
 
     }
 
+    handleClick = () => {
+        
+    }
+
     render() {
         return (
             <div>
@@ -44,7 +48,8 @@ export class Upload extends Component {
                     <NavStepper step={this.props.reduxState.navReducer} />
                     <NavButton
                         text='Next'
-                        onClick={() => this.props.dispatch({ type: 'NEXT_PAGE' })}
+                        onClick={this.handleClick}
+                        // onClick={() => this.props.dispatch({ type: 'NEXT_PAGE' })}
                         disabled={this.props.reduxState.navReducer === 4}
                         style={{ visibility: 'visible' }}
                     />
