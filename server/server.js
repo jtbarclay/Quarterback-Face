@@ -3,17 +3,20 @@ const express = require('express');
 require('dotenv').config();
 
 const app = express();
-const bodyParser = require('body-parser');
+const bb = require('express-busboy');
 const sessionMiddleware = require('./modules/session-middleware');
 
 const passport = require('./strategies/user.strategy');
 
 // Route includes
 const userRouter = require('./routes/user.router');
+const awsRouter = require('./routes/aws.router');
 
 // Body parser middleware
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+bb.extend(app, {
+  upload: true,
+  path: './server/uploads',
+});
 
 // Passport Session Configuration //
 app.use(sessionMiddleware);
@@ -24,6 +27,7 @@ app.use(passport.session());
 
 /* Routes */
 app.use('/api/user', userRouter);
+app.use('/api/aws', awsRouter);
 
 // Serve static files
 app.use(express.static('build'));

@@ -9,7 +9,7 @@ export class Individual extends Component {
         return (
             <div>
                 <CardContent>
-
+                    <pre>{JSON.stringify(this.props, null, 2)}</pre>
                 </CardContent>
                 <CardActions>
                     {/* custom nav buttons */}

@@ -21,17 +21,24 @@ export class Upload extends Component {
 
     }
 
+    handleClick = () => {
+        const formData = new FormData();
+        formData.append('fileUpload', this.state.image);
+
+        this.props.dispatch({ type: 'UPLOAD_PICTURE', payload: formData })
+    }
+
     render() {
         return (
             <div>
                 <CardContent>
                     {this.state.img ? (
-                    <CardMedia>
-                        <img src={this.state.img} alt='userImg' className='userImg' />
-                    </CardMedia>
-                    ):(
-                    <input type='file' name='image' accept='image/*' onChange={this.handleInput} />
-                    )}
+                        <CardMedia>
+                            <img src={this.state.img} alt='userImg' className='userImg' />
+                        </CardMedia>
+                    ) : (
+                            <input type='file' name='image' accept='image/*' onChange={this.handleInput} />
+                        )}
                 </CardContent>
                 <CardActions>
                     {/* custom nav buttons */}
@@ -44,7 +51,8 @@ export class Upload extends Component {
                     <NavStepper step={this.props.reduxState.navReducer} />
                     <NavButton
                         text='Next'
-                        onClick={() => this.props.dispatch({ type: 'NEXT_PAGE' })}
+                        onClick={this.handleClick}
+                        // onClick={() => this.props.dispatch({ type: 'NEXT_PAGE' })}
                         disabled={this.props.reduxState.navReducer === 4}
                         style={{ visibility: 'visible' }}
                     />
