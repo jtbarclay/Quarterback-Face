@@ -12,7 +12,7 @@ import Upload from '../Upload/Upload';
 import Waiting from '../Waiting/Waiting';
 import Individual from '../Individual/Individual';
 import Comparison from '../Comparison/Comparison';
-import AdminAuth from '../Admin/AdminAuth';
+import Admin from '../Admin/Admin';
 
 // sets material ui theme
 const theme = createMuiTheme({
@@ -97,7 +97,7 @@ export class App extends Component {
                             <Route
                                 exact
                                 path='/admin'
-                                component={AdminAuth}
+                                component={Admin}
                             />
                         </Grid>
                     </Grid>
