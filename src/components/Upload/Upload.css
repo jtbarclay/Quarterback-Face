@@ -9,7 +9,7 @@
     height: auto;
 }
 
-input {
+.upload input {
     display: block;
     margin-left: auto;
     margin-right: auto;
