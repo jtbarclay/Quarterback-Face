@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Grid, Card } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { HashRouter as Router, Route } from 'react-router-dom';
+// import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import './App.css';
 
 // import components
@@ -10,6 +12,7 @@ import Upload from '../Upload/Upload';
 import Waiting from '../Waiting/Waiting';
 import Individual from '../Individual/Individual';
 import Comparison from '../Comparison/Comparison';
+import Admin from '../Admin/Admin';
 
 // sets material ui theme
 const theme = createMuiTheme({
@@ -63,31 +66,43 @@ const theme = createMuiTheme({
 export class App extends Component {
     render() {
         return (
-            <ThemeProvider theme={theme}>
-                <Grid container justify='center' alignItems='center'>
-                    <Grid item xs={6}>
-                        <Card>
-                            {/* navigate between components */}
-                            {(() => {
-                                switch (this.props.reduxState.navReducer) {
-                                    case 0:
-                                        return <Landing />;
-                                    case 1:
-                                        return <Upload />;
-                                    case 2:
-                                        return <Waiting />;
-                                    case 3:
-                                        return <Individual />;
-                                    case 4:
-                                        return <Comparison />;
-                                    default:
-                                        return null;
-                                }
-                            })()}
-                        </Card>
+            <Router>
+                <ThemeProvider theme={theme}>
+                    <Grid container justify='center' alignItems='center'>
+                        <Grid item xs={6}>
+                            <Route
+                                exact
+                                path='/'
+                                render={() => (
+                                    <Card>
+                                        {(() => {
+                                            switch (this.props.reduxState.navReducer) {
+                                                case 0:
+                                                    return <Landing />;
+                                                case 1:
+                                                    return <Upload />;
+                                                case 2:
+                                                    return <Waiting />;
+                                                case 3:
+                                                    return <Individual />;
+                                                case 4:
+                                                    return <Comparison />;
+                                                default:
+                                                    return null;
+                                            }
+                                        })()}
+                                    </Card>
+                                )}
+                            />
+                            <Route
+                                exact
+                                path='/admin'
+                                component={Admin}
+                            />
+                        </Grid>
                     </Grid>
-                </Grid>
-            </ThemeProvider>
+                </ThemeProvider>
+            </Router>
         )
     }
 }

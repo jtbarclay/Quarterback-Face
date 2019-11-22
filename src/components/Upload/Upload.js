@@ -30,7 +30,7 @@ export class Upload extends Component {
 
     render() {
         return (
-            <div>
+            <div className='upload'>
                 <CardContent>
                     {this.state.img ? (
                         <CardMedia>
