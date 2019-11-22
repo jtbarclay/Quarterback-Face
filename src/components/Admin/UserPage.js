@@ -31,8 +31,6 @@ export class UserPage extends Component {
     return (
       <div>
         <Paper>
-          <pre>{JSON.stringify(this.state, null, 2)}</pre>
-          <pre>{JSON.stringify(this.props.reduxState.adminReducer, null, 2)}</pre>
           <Table>
             <TableHead>
               <TableRow>
