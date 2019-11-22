@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Grid, Card } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { HashRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route } from 'react-router-dom';
 // import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import './App.css';
 

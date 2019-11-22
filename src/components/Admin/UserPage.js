@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-import LogOutButton from './LogOutButton';
 import { Paper, Table, TableHead, TableRow, TableCell, TableBody, Button, TextField } from '@material-ui/core';
 
 // this could also be written with destructuring parameters as:
@@ -12,9 +11,21 @@ export class UserPage extends Component {
     score: '',
   }
 
+  componentDidMount() {
+    this.props.dispatch({ type: 'GET_QB'});
+  }
+
   inputHandler = (event, property) => {
     this.setState({
       [property]: event.target.value,
+    })
+  }
+
+  addButtonHandler = () => {
+    this.props.dispatch({ type: 'ADD_QB', payload: this.state })
+    this.setState({
+      name: '',
+      score: '',
     })
   }
 
@@ -23,6 +34,7 @@ export class UserPage extends Component {
       <div>
         <Paper>
           <pre>{JSON.stringify(this.state, null, 2)}</pre>
+          <pre>{JSON.stringify(this.props.reduxState.adminReducer, null, 2)}</pre>
           <Table>
             <TableHead>
               <TableRow>
@@ -34,9 +46,9 @@ export class UserPage extends Component {
             </TableHead>
             <TableBody>
               <TableRow>
-                <TableCell><TextField label='name' onChange={(event) => this.inputHandler(event, 'name')}></TextField></TableCell>
-                <TableCell><TextField label='score' onChange={(event) => this.inputHandler(event, 'score')}></TextField></TableCell>
-                <TableCell><Button>Add</Button></TableCell>
+                <TableCell><TextField label='name' value={this.state.name} onChange={(event) => this.inputHandler(event, 'name')}></TextField></TableCell>
+                <TableCell><TextField label='score' value={this.state.score} onChange={(event) => this.inputHandler(event, 'score')}></TextField></TableCell>
+                <TableCell><Button onClick={this.addButtonHandler}>Add</Button></TableCell>
                 <TableCell></TableCell>
               </TableRow>
             </TableBody>
@@ -50,8 +62,8 @@ export class UserPage extends Component {
 // Instead of taking everything from state, we just want the user info.
 // if you wanted you could write this code like this:
 // const mapStateToProps = ({user}) => ({ user });
-const mapStateToProps = state => ({
-  user: state.user,
+const mapStateToProps = reduxState => ({
+  reduxState,
 });
 
 // this allows us to use <App /> in index.js
