@@ -12,7 +12,7 @@ export class UserPage extends Component {
   }
 
   componentDidMount() {
-    this.props.dispatch({ type: 'GET_QB'});
+    this.props.dispatch({ type: 'GET_QB' });
   }
 
   inputHandler = (event, property) => {
@@ -51,6 +51,14 @@ export class UserPage extends Component {
                 <TableCell><Button onClick={this.addButtonHandler}>Add</Button></TableCell>
                 <TableCell></TableCell>
               </TableRow>
+              {this.props.reduxState.adminReducer[0] && this.props.reduxState.adminReducer.map(qb => (
+                <TableRow>
+                  <TableCell>{qb.name}</TableCell>
+                  <TableCell>{qb.score}</TableCell>
+                  <TableCell><Button>Edit</Button></TableCell>
+                  <TableCell><Button>Delete</Button></TableCell>
+                </TableRow>
+              ))}
             </TableBody>
           </Table>
         </Paper>
