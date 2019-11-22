@@ -12,6 +12,7 @@ const passport = require('./strategies/user.strategy');
 const userRouter = require('./routes/user.router');
 const awsRouter = require('./routes/aws.router');
 const adminRouter = require('./routes/admin.router');
+const compareRouter = require('./routes/compare.router');
 
 // Body parser middleware
 bb.extend(app, {
@@ -30,6 +31,7 @@ app.use(passport.session());
 app.use('/api/user', userRouter);
 app.use('/api/aws', awsRouter);
 app.use('/api/admin', adminRouter);
+app.use('/api/compare', compareRouter);
 
 // Serve static files
 app.use(express.static('build'));

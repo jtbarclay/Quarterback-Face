@@ -13,7 +13,7 @@ const midJawline = [];
 // this function pushes from data into the respective arrays
 const dataPusher = (data, array, left, right) => {
     data[0].Landmarks.forEach(landmark => {
-        
+
         if (landmark.Type === left) {
             array.push([landmark.X, landmark.Y])
         }
@@ -50,12 +50,20 @@ const symmetryCalc = (data) => {
     let faceLine = ss.linearRegression(faceMidPoints);
 
     return {
-        eyebrows: Math.abs(distanceCalc(faceLine, eyebrows[0])-distanceCalc(faceLine, eyebrows[1])),
-        eyes: Math.abs(distanceCalc(faceLine, eyes[0])-distanceCalc(faceLine, eyes[1])),
-        nose: Math.abs(distanceCalc(faceLine, nose[0])-distanceCalc(faceLine, nose[1])),
-        mouth: Math.abs(distanceCalc(faceLine, mouth[0])-distanceCalc(faceLine, mouth[1])),
-        upperJawline: Math.abs(distanceCalc(faceLine, upperJawline[0])-distanceCalc(faceLine, upperJawline[1])),
-        midJawline: Math.abs(distanceCalc(faceLine, midJawline[0])-distanceCalc(faceLine, midJawline[1])),
+        eyebrows: Math.abs(distanceCalc(faceLine, eyebrows[0]) - distanceCalc(faceLine, eyebrows[1])),
+        eyes: Math.abs(distanceCalc(faceLine, eyes[0]) - distanceCalc(faceLine, eyes[1])),
+        nose: Math.abs(distanceCalc(faceLine, nose[0]) - distanceCalc(faceLine, nose[1])),
+        mouth: Math.abs(distanceCalc(faceLine, mouth[0]) - distanceCalc(faceLine, mouth[1])),
+        upperJawline: Math.abs(distanceCalc(faceLine, upperJawline[0]) - distanceCalc(faceLine, upperJawline[1])),
+        midJawline: Math.abs(distanceCalc(faceLine, midJawline[0]) - distanceCalc(faceLine, midJawline[1])),
+        mean: ss.mean([
+            Math.abs(Math.log(Math.abs(distanceCalc(faceLine, eyebrows[0]) - distanceCalc(faceLine, eyebrows[1])))),
+            Math.abs(Math.log(Math.abs(distanceCalc(faceLine, eyes[0]) - distanceCalc(faceLine, eyes[1])))),
+            Math.abs(Math.log(Math.abs(distanceCalc(faceLine, nose[0]) - distanceCalc(faceLine, nose[1])))),
+            Math.abs(Math.log(Math.abs(distanceCalc(faceLine, mouth[0]) - distanceCalc(faceLine, mouth[1])))),
+            Math.abs(Math.log(Math.abs(distanceCalc(faceLine, upperJawline[0]) - distanceCalc(faceLine, upperJawline[1])))),
+            Math.abs(Math.log(Math.abs(distanceCalc(faceLine, midJawline[0]) - distanceCalc(faceLine, midJawline[1])))),
+        ]),
     };
 }
 

@@ -5,6 +5,7 @@ import user from './userReducer';
 import navReducer from './navReducer';
 import symmetryReducer from './symmetryReducer';
 import adminReducer from './adminReducer';
+import compareReducer from './compareReducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   navReducer, // will have switch case value for currently displayed page
   symmetryReducer,
   adminReducer,
+  compareReducer,
 });
 
 export default rootReducer;
