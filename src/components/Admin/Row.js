@@ -30,7 +30,7 @@ export class Row extends Component {
             <TableRow>
                 <TableCell><TextField value={this.state.qb.name} onChange={(event) => this.inputHandler(event, 'name')} /></TableCell>
                 <TableCell><TextField value={this.state.qb.score} onChange={(event) => this.inputHandler(event, 'score')} /></TableCell>
-                <TableCell><Button onClick={this.editHandler}>Edit</Button></TableCell>
+                <TableCell><Button onClick={this.editHandler}>Save</Button></TableCell>
                 <TableCell><Button onClick={this.deleteHandler}>Delete</Button></TableCell>
             </TableRow>
         )

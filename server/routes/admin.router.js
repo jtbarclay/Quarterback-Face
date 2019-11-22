@@ -6,7 +6,10 @@ const router = express.Router();
  * GET route template
  */
 router.get('/', (req, res) => {
-    const query = `SELECT * from "quarterbacks";`;
+    const query = `
+        SELECT * from "quarterbacks"
+        ORDER BY "id";
+    `;
 
     pool.query(query)
         .then((response) => {
@@ -26,9 +29,6 @@ router.post('/', (req, res) => {
         INSERT INTO "quarterbacks" ("name", "score") 
         VALUES ($1, $2);
     `;
-
-    console.log('in admin router req.body: ', req.body);
-
 
     pool.query(query, [req.body.name, req.body.score])
         .then((response) => {
@@ -53,5 +53,23 @@ router.delete('/:id', (req, res) => {
             console.log('admin DELETE error', error);
         })
 })
+
+router.put('/', (req, res) => {
+    const query = `
+        UPDATE "quarterbacks" SET "name"=$1, "score"=$2
+        WHERE "id"=$3;
+    `;
+
+    console.log('in put:', req.body);
+    
+
+    pool.query(query, [req.body.qb.name, req.body.qb.score, req.body.qb.id])
+        .then((response) => {
+            console.log('admin PUT response', response);
+        })
+        .catch((error) => {
+            console.log('admin PUT error', error);
+        })
+});
 
 module.exports = router;
