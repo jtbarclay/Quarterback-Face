@@ -1,11 +1,12 @@
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
+const { rejectUnauthenticated } = require('../modules/authentication-middleware');
 
 /**
  * GET route template
  */
-router.get('/', (req, res) => {
+router.get('/', rejectUnauthenticated, (req, res) => {
     const query = `
         SELECT * from "quarterbacks"
         ORDER BY "id";
@@ -24,7 +25,7 @@ router.get('/', (req, res) => {
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+router.post('/', rejectUnauthenticated, (req, res) => {
     const query = `
         INSERT INTO "quarterbacks" ("name", "score") 
         VALUES ($1, $2);
@@ -39,7 +40,7 @@ router.post('/', (req, res) => {
         })
 });
 
-router.delete('/:id', (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
     const query = `
         DELETE FROM "quarterbacks"
         WHERE "id" = $1;
@@ -54,7 +55,7 @@ router.delete('/:id', (req, res) => {
         })
 })
 
-router.put('/', (req, res) => {
+router.put('/', rejectUnauthenticated, (req, res) => {
     const query = `
         UPDATE "quarterbacks" SET "name"=$1, "score"=$2
         WHERE "id"=$3;

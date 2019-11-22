@@ -12,6 +12,7 @@ export class Individual extends Component {
             <div>
                 <CardContent>
                     <div className='graph'>
+                        {/* <h1>{this.props.reduxState.symmetryReducer.mean}</h1> */}
                         <Radar
                             config={{
                                 data: {
