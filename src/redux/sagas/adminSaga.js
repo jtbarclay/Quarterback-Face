@@ -14,7 +14,7 @@ function* addQuarterback(action) {
 function* getQuarterbacks() {
     try {
         const qbResponse = yield axios.get('/api/admin');
-        yield put({ type: 'SET_QB', payload: qbResponse.data})
+        yield put({ type: 'SET_QB', payload: qbResponse.data});
     }
     catch (error) {
         console.log('error fetching quarterbacks', error);

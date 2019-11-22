@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
         })
         .catch((error) => {
             console.log('compare GET error', error);
+            res.sendStatus(500);
         })
 });
 

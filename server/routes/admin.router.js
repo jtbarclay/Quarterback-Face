@@ -19,6 +19,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
         })
         .catch((error) => {
             console.log('admin GET error', error);
+            res.sendStatus(500);
         })
 });
 
@@ -34,9 +35,11 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     pool.query(query, [req.body.name, req.body.score])
         .then((response) => {
             console.log('admin POST response', response);
+            res.sendStatus(200);
         })
         .catch((error) => {
             console.log('admin POST error', error);
+            res.sendStatus(500);
         })
 });
 
@@ -49,9 +52,11 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
     pool.query(query, [req.params.id])
         .then((response) => {
             console.log('admin DELETE response', response);
+            res.sendStatus(200);
         })
         .catch((error) => {
             console.log('admin DELETE error', error);
+            res.sendStatus(500);
         })
 })
 
@@ -67,9 +72,11 @@ router.put('/', rejectUnauthenticated, (req, res) => {
     pool.query(query, [req.body.qb.name, req.body.qb.score, req.body.qb.id])
         .then((response) => {
             console.log('admin PUT response', response);
+            res.sendStatus(200);
         })
         .catch((error) => {
             console.log('admin PUT error', error);
+            res.sendStatus(500);
         })
 });
 
