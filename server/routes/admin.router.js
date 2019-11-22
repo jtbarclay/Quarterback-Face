@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
     `;
 
     console.log('in admin router req.body: ', req.body);
-    
+
 
     pool.query(query, [req.body.name, req.body.score])
         .then((response) => {
@@ -38,5 +38,20 @@ router.post('/', (req, res) => {
             console.log('admin POST error', error);
         })
 });
+
+router.delete('/:id', (req, res) => {
+    const query = `
+        DELETE FROM "quarterbacks"
+        WHERE "id" = $1;
+    `;
+
+    pool.query(query, [req.params.id])
+        .then((response) => {
+            console.log('admin DELETE response', response);
+        })
+        .catch((error) => {
+            console.log('admin DELETE error', error);
+        })
+})
 
 module.exports = router;

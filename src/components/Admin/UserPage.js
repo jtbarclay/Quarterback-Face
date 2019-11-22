@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Paper, Table, TableHead, TableRow, TableCell, TableBody, Button, TextField } from '@material-ui/core';
+import Row from './Row';
 
-// this could also be written with destructuring parameters as:
-// const UserPage = ({ user }) => (
-// and then instead of `props.user.username` you could use `user.username`
 export class UserPage extends Component {
   state = {
     name: '',
@@ -18,7 +16,7 @@ export class UserPage extends Component {
   inputHandler = (event, property) => {
     this.setState({
       [property]: event.target.value,
-    })
+    });
   }
 
   addButtonHandler = () => {
@@ -26,7 +24,7 @@ export class UserPage extends Component {
     this.setState({
       name: '',
       score: '',
-    })
+    });
   }
 
   render() {
@@ -52,12 +50,10 @@ export class UserPage extends Component {
                 <TableCell></TableCell>
               </TableRow>
               {this.props.reduxState.adminReducer[0] && this.props.reduxState.adminReducer.map(qb => (
-                <TableRow>
-                  <TableCell>{qb.name}</TableCell>
-                  <TableCell>{qb.score}</TableCell>
-                  <TableCell><Button>Edit</Button></TableCell>
-                  <TableCell><Button>Delete</Button></TableCell>
-                </TableRow>
+                <Row
+                  key={qb.id}
+                  qb={qb}
+                />
               ))}
             </TableBody>
           </Table>

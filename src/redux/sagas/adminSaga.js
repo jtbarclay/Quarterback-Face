@@ -21,9 +21,20 @@ function* getQuarterbacks() {
     }
 }
 
+function* deleteQuarterback(action) {
+    try {
+        yield axios.delete(`/api/admin/${action.payload.qb.id}`);
+        yield put({ type: 'GET_QB' });
+    }
+    catch (error) {
+        console.log('error deleting qb', error);
+    }
+}
+
 function* adminSaga() {
     yield takeEvery('ADD_QB', addQuarterback);
     yield takeEvery('GET_QB', getQuarterbacks);
+    yield takeEvery('DELETE_QB', deleteQuarterback);
 }
 
 export default adminSaga;
