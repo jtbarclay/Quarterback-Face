@@ -30,7 +30,7 @@ export class UserPage extends Component {
   render() {
     return (
       <div>
-        <Paper>
+        <Paper style={{ maxHeight: '800px', overflow: 'auto' }}>
           <Table>
             <TableHead>
               <TableRow>

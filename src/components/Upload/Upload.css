@@ -7,6 +7,7 @@
     margin-right: auto;
     max-width: 80%;
     height: auto;
+    max-height: 400px;
 }
 
 .upload input {

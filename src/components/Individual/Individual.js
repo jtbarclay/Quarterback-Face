@@ -32,6 +32,8 @@ export class Individual extends Component {
                                     dotSize: .8,
                                     showLabels: true,
                                     ticksCount: 10,
+                                    fontFamily: 'roboto',
+                                    unxkcdify: true,
                                 }
                             }}
                         />

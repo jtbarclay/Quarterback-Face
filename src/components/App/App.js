@@ -32,7 +32,7 @@ const theme = createMuiTheme({
         MuiCard: {
             root: {
                 height: 600,
-                minWidth: 800,
+                maxWidth: 900,
                 marginTop: 100,
                 backgroundColor: '#F3F3F3',
             }
@@ -70,8 +70,8 @@ export class App extends Component {
         return (
             <Router>
                 <ThemeProvider theme={theme}>
-                    <Grid container justify='center' alignItems='center'>
-                        <Grid item xs={6}>
+                    <Grid container justify='center' alignItems='center' style={{minWidth: '700px'}}>
+                        <Grid item lg={6} md={8} sm={12}>
                             <Route
                                 exact
                                 path='/'

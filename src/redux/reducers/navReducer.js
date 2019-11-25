@@ -5,6 +5,8 @@ const navReducer = (state = 0, action) => {
             return state + 1;
         case 'PREV_PAGE':
             return state - 1;
+        case 'START_OVER':
+            return 0;
         default:
             return state;
     }

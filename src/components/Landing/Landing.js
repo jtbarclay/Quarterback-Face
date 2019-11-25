@@ -25,7 +25,8 @@ export class Landing extends Component {
                 <CardContent>
                     <h1>Welcome to Quarterback Face</h1>
                     <Container
-                        maxWidth='sm'
+                        // maxWidth='sm'
+                        fixed={true}
                     >
                         <List>
                             <ListItem>
