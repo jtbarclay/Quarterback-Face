@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { Grid, Card } from '@material-ui/core';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import GitHubIcon from '@material-ui/icons/GitHub';
 import { HashRouter as Router, Route } from 'react-router-dom';
 // import ProtectedRoute from '../ProtectedRoute/ProtectedRoute'
 import './App.css';
@@ -101,6 +102,9 @@ export class App extends Component {
                             />
                         </Grid>
                     </Grid>
+                    <footer className='githubicon'>
+                        <a href='https://github.com/jtbarclay/qbface' target='_blank'><GitHubIcon fontSize='large' /></a>
+                    </footer>
                 </ThemeProvider>
             </Router>
         )

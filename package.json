@@ -5,6 +5,7 @@
   "proxy": "http://localhost:5000",
   "dependencies": {
     "@material-ui/core": "^4.6.1",
+    "@material-ui/icons": "^4.5.1",
     "@material-ui/styles": "^4.6.0",
     "@microlink/react": "^4.4.3",
     "aws-sdk": "^2.575.0",
