@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { CardActions, CardContent, List, ListItem, ListItemText, Paper } from '@material-ui/core';
 import NavButton from '../Buttons/NavButton';
 import NavStepper from '../NavStepper/NavStepper';
-import axios from 'axios';
 
 export class Comparison extends Component {
 
@@ -19,18 +18,18 @@ export class Comparison extends Component {
                     <Paper style={{ maxHeight: 450, overflow: 'auto' }}>
                         <List>
                             {this.props.reduxState.symmetryReducer.mean && this.props.reduxState.compareReducer[0] && this.props.reduxState.compareReducer.filter(qb => qb.score > this.props.reduxState.symmetryReducer.mean).map(qb => (
-                                <ListItem>
+                                <ListItem key={qb.id}>
                                     <ListItemText primary={qb.name} />
                                 </ListItem>
                             ))}
                             <ListItem
-                                autoFocus='true'
-                                selected='true'
+                                autoFocus={true}
+                                selected={true}
                             >
                                 <ListItemText primary='You' />
                             </ListItem>
                             {this.props.reduxState.symmetryReducer.mean && this.props.reduxState.compareReducer[0] && this.props.reduxState.compareReducer.filter(qb => qb.score < this.props.reduxState.symmetryReducer.mean).map(qb => (
-                                <ListItem>
+                                <ListItem key={qb.id}>
                                     <ListItemText primary={qb.name} />
                                 </ListItem>
                             ))}

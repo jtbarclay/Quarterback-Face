@@ -20,7 +20,7 @@ const theme = createMuiTheme({
     overrides: {
         MuiButton: {
             root: {
-                margin: '20px',
+                margin: '10px',
             },
         },
         MuiCardActions: {
@@ -32,6 +32,7 @@ const theme = createMuiTheme({
         MuiCard: {
             root: {
                 height: 600,
+                minWidth: 800,
                 marginTop: 100,
                 backgroundColor: '#F3F3F3',
             }
@@ -103,7 +104,7 @@ export class App extends Component {
                         </Grid>
                     </Grid>
                     <footer className='githubicon'>
-                        <a href='https://github.com/jtbarclay/qbface' target='_blank'><GitHubIcon fontSize='large' /></a>
+                        <a href='https://github.com/jtbarclay/qbface' target='_blank' rel='noopener noreferrer'><GitHubIcon fontSize='large' /></a>
                     </footer>
                 </ThemeProvider>
             </Router>

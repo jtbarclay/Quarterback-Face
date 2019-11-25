@@ -58,7 +58,15 @@ export class Landing extends Component {
                                 </ListItemIcon>
                                 <ListItemText>
                                     See how you stack up against NFL Quarterbacks.
-                        </ListItemText>
+                                </ListItemText>
+                            </ListItem>
+                            <ListItem>
+                                <ListItemIcon>
+                                    <HelmetIcon />
+                                </ListItemIcon>
+                                <ListItemText>
+                                    Click the start button to begin.
+                                </ListItemText>
                             </ListItem>
                         </List>
                         <About />
@@ -70,14 +78,14 @@ export class Landing extends Component {
                         text='Prev'
                         onClick={() => this.props.dispatch({ type: 'PREV_PAGE' })}
                         disabled={this.props.reduxState.navReducer === 0}
-                        style={{visibility: 'hidden'}}
+                        style={{ visibility: 'hidden' }}
                     />
                     <NavStepper step={this.props.reduxState.navReducer} />
                     <NavButton
                         text='Start'
                         onClick={() => this.props.dispatch({ type: 'NEXT_PAGE' })}
                         disabled={this.props.reduxState.navReducer === 4}
-                        style={{visibility: 'visible'}}
+                        style={{ visibility: 'visible' }}
                     />
                 </CardActions>
             </div>
