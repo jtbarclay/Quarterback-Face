@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import { Button } from '@material-ui/core';
 
 export class Copy extends Component {
 
@@ -10,17 +11,12 @@ export class Copy extends Component {
     render() {
         return (
             <div>
-                <input value={this.props.value}
-                    onChange={({ target: { value } }) => this.setState({ value, copied: false })} />
-
                 <CopyToClipboard text={this.props.value}
                     onCopy={() => this.setState({ copied: true })}>
-                    <span>Copy to clipboard with span</span>
-                </CopyToClipboard>
-
-                <CopyToClipboard text={this.props.value}
-                    onCopy={() => this.setState({ copied: true })}>
-                    <button>Copy to clipboard with button</button>
+                    <Button
+                        variant='outlined'
+                        color='primary'
+                    >Copy to clipboard.</Button>
                 </CopyToClipboard>
 
                 {this.state.copied ? <span style={{ color: 'red' }}>Copied.</span> : null}

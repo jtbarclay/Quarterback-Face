@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CardContent, CardActions, IconButton, } from '@material-ui/core';
+import { CardContent, CardActions, IconButton, TextField, Button } from '@material-ui/core';
 import ReplayIcon from '@material-ui/icons/Replay';
 
 import NavButton from '../Buttons/NavButton';
@@ -10,9 +10,15 @@ import Copy from './Copy';
 export class Sharing extends Component {
 
     state = {
-        name: 'jon',
+        name: '',
         nameSet: false,
     };
+
+    handleInput = (event) => {
+        this.setState({
+            name: event.target.value,
+        })
+    }
 
     render() {
         return (
@@ -23,25 +29,36 @@ export class Sharing extends Component {
                             value={`
                             ${process.env.REACT_APP_SHARE_URL_BASE}
                             ${btoa([
-                                    this.state.name,
-                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.eyebrows)).toFixed(2),
-                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.eyes)).toFixed(2),
-                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.nose)).toFixed(2),
-                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.mouth)).toFixed(2),
-                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.upperJawline)).toFixed(2),
-                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.midJawline)).toFixed(2)
-                                ].join('+'))}
+                                this.state.name,
+                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.eyebrows)).toFixed(2),
+                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.eyes)).toFixed(2),
+                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.nose)).toFixed(2),
+                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.mouth)).toFixed(2),
+                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.upperJawline)).toFixed(2),
+                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.midJawline)).toFixed(2)
+                            ].join('+'))}
                         `}
                         />
                     ) : (
                             <>
-                                <input value={this.state.name}
-                                    onChange={({ target: { name } }) => this.setState({ name })} />
-                                <button
-                                    onClick={() => this.setState({ nameSet: true, })}
+                                <TextField
+                                    value={this.state.name}
+                                    label='Your Name'
+                                    onChange={this.handleInput}
+                                />
+                                <Button
+                                    variant='outlined'
+                                    color='primary'
+                                    onClick={() => {
+                                        if (this.state.name === '') {
+                                            window.alert('Please enter your name.')
+                                        } else {
+                                            this.setState({ nameSet: true, })
+                                        }
+                                    }}
                                 >
                                     Get Link
-                            </button>
+                            </Button>
                             </>
                         )}
 
