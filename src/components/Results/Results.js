@@ -42,7 +42,7 @@ export class Results extends Component {
                             </div>
                         </CardContent>
                         <CardActions style={{ justifyContent: 'center' }}>
-                            <a href={process.env.REACT_APP_URL_BASE} target='_blank' rel='noopener noreferrer'><NavButton
+                            <a href='/' target='_blank' rel='noopener noreferrer'><NavButton
                                 text='Try it yourself'
                             /></a>
                         </CardActions>
