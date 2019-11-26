@@ -27,7 +27,7 @@ export class Sharing extends Component {
                     {this.state.nameSet ? (
                         <Copy
                             value={`
-                            ${process.env.REACT_APP_SHARE_URL_BASE}
+                            ${process.env.REACT_APP_URL_BASE}results/
                             ${btoa([
                                 this.state.name,
                                 Math.abs(Math.log(this.props.reduxState.symmetryReducer.eyebrows)).toFixed(2),
