@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { CardActions, CardContent, List, ListItem, ListItemText, Paper, IconButton } from '@material-ui/core';
+import { CardActions, CardContent, List, ListItem, ListItemText, Paper } from '@material-ui/core';
 import NavButton from '../Buttons/NavButton';
 import NavStepper from '../NavStepper/NavStepper';
-import ReplayIcon from '@material-ui/icons/Replay';
 
 export class Comparison extends Component {
 
@@ -46,18 +45,12 @@ export class Comparison extends Component {
                         style={{ visibility: 'visible' }}
                     />
                     <NavStepper step={this.props.reduxState.navReducer} />
-                    <IconButton
-                        color='primary'
-                        onClick={() => this.props.dispatch({ type: 'START_OVER' })}
-                        // disabled={this.props.disabled}
+                    <NavButton
+                        text='Next'
+                        onClick={() => this.props.dispatch({ type: 'NEXT_PAGE' })}
+                        disabled={this.props.reduxState.navReducer === 5}
                         style={{ visibility: 'visible' }}
-                    >
-                        <ReplayIcon
-                            fontSize='large'
-                            color='primary'
-                        />
-                        Start Over
-                    </IconButton>
+                    />
                 </CardActions>
             </div>
         )

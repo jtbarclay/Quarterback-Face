@@ -14,6 +14,8 @@ import Waiting from '../Waiting/Waiting';
 import Individual from '../Individual/Individual';
 import Comparison from '../Comparison/Comparison';
 import Admin from '../Admin/Admin';
+import Sharing from '../Sharing/Sharing';
+import Results from '../Results/Results';
 
 // sets material ui theme
 const theme = createMuiTheme({
@@ -89,6 +91,8 @@ export class App extends Component {
                                                     return <Individual />;
                                                 case 4:
                                                     return <Comparison />;
+                                                case 5:
+                                                    return <Sharing />;
                                                 default:
                                                     return null;
                                             }
@@ -100,6 +104,10 @@ export class App extends Component {
                                 exact
                                 path='/admin'
                                 component={Admin}
+                            />
+                            <Route
+                                path='/results/:id'
+                                component={Results}
                             />
                         </Grid>
                     </Grid>
