@@ -4,6 +4,9 @@ const router = express.Router();
 const fs = require('fs');
 const AWS = require('aws-sdk')
 const symmetryCalc = require('../modules/symmetryCalc');
+const path = require('path');
+
+let filePath = null;
 
 router.post('/', (req, res) => {
 
@@ -17,6 +20,8 @@ router.post('/', (req, res) => {
         Key: req.files.fileUpload.filename, // File name you want to save as in S3
         Body: fileContent
     };
+
+    filePath = path.resolve(req.files.fileUpload.file, '..', '..');
 
     // Uploading files to the bucket
     s3.upload(params, function (err, data) {
@@ -44,6 +49,7 @@ router.post('/', (req, res) => {
                 },
                 Attributes: ['ALL']
             }
+
             // rekognition api call
             client.detectFaces(params, function (err, response) {
                 if (err) {
@@ -52,10 +58,21 @@ router.post('/', (req, res) => {
                     console.log(`Detected faces for: ${photo}`)
                     // send results back to client                    
                     res.send(symmetryCalc(response.FaceDetails));
+
+                    console.log('inside callback filePath:', filePath);
+                    fs.rmdir(filePath, { recursive: true }, function (err) {
+                        if (err) {
+                            console.log('error deleting picture', err);
+                        }
+                    });
                 }
             });
         }
     });
+    // console.log('in aws router, path: ',path.resolve(req.files.fileUpload.file, '..', '..'));
+
+
+
 });
 
 module.exports = router;

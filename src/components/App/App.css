@@ -1,6 +1,7 @@
 body {
     background-image: url('Sports.png');
     background-repeat: repeat;
+    background-position: 25% 50%;
 }
 
 form {
