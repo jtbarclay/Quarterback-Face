@@ -6,6 +6,7 @@ import ReplayIcon from '@material-ui/icons/Replay';
 import NavButton from '../Buttons/NavButton';
 import NavStepper from '../NavStepper/NavStepper';
 import Copy from './Copy';
+import './Sharing.css'
 
 export class Sharing extends Component {
 
@@ -22,7 +23,7 @@ export class Sharing extends Component {
 
     render() {
         return (
-            <div>
+            <div className='sharing'>
                 <CardContent>
                     {this.state.nameSet ? (
                         <Copy

@@ -7,7 +7,7 @@ import './Upload.css';
 
 export class Upload extends Component {
     state = {
-        image: '',
+        image: null,
         img: false,
     }
 
@@ -22,10 +22,15 @@ export class Upload extends Component {
     }
 
     handleClick = () => {
+
+        if(this.state.image) {
         const formData = new FormData();
         formData.append('fileUpload', this.state.image);
 
         this.props.dispatch({ type: 'UPLOAD_PICTURE', payload: formData })
+        } else {
+            window.alert('Please select a photo.')
+        }
     }
 
     render() {
