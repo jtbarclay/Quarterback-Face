@@ -1,0 +1,6 @@
+SERVER_SESSION_SECRET=longrandomstring
+AWS_ACCESS_KEY_ID=youraccesskey
+AWS_SECRET_ACCESS_KEY=yoursecretaccesskey
+AWS_REGION=yourregion
+S3_BUCKET=yourbucketname
+REACT_APP_URL_BASE=http://localhost:3000/#/
