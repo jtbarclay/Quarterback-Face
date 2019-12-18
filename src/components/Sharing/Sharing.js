@@ -23,45 +23,47 @@ export class Sharing extends Component {
 
     render() {
         return (
-            <div className='sharing'>
+            <div>
                 <CardContent>
-                    {this.state.nameSet ? (
-                        <Copy
-                            value={`
+                    <div className='sharing'>
+                        {this.state.nameSet ? (
+                            <Copy
+                                value={`
                             ${process.env.REACT_APP_URL_BASE}results/
                             ${btoa([
-                                this.state.name,
-                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.eyebrows)).toFixed(2),
-                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.eyes)).toFixed(2),
-                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.nose)).toFixed(2),
-                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.mouth)).toFixed(2),
-                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.upperJawline)).toFixed(2),
-                                Math.abs(Math.log(this.props.reduxState.symmetryReducer.midJawline)).toFixed(2)
-                            ].join('+'))}
+                                    this.state.name,
+                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.eyebrows)).toFixed(2),
+                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.eyes)).toFixed(2),
+                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.nose)).toFixed(2),
+                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.mouth)).toFixed(2),
+                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.upperJawline)).toFixed(2),
+                                    Math.abs(Math.log(this.props.reduxState.symmetryReducer.midJawline)).toFixed(2)
+                                ].join('+'))}
                         `}
-                        />
-                    ) : (
-                            <>
-                                <TextField
-                                    value={this.state.name}
-                                    label='Your Name'
-                                    onChange={this.handleInput}
-                                />
-                                <Button
-                                    variant='outlined'
-                                    color='primary'
-                                    onClick={() => {
-                                        if (this.state.name === '') {
-                                            window.alert('Please enter your name.')
-                                        } else {
-                                            this.setState({ nameSet: true, })
-                                        }
-                                    }}
-                                >
-                                    Get Link
+                            />
+                        ) : (
+                                <>
+                                    <TextField
+                                        value={this.state.name}
+                                        label='Your Name'
+                                        onChange={this.handleInput}
+                                    />
+                                    <Button
+                                        variant='outlined'
+                                        color='primary'
+                                        onClick={() => {
+                                            if (this.state.name === '') {
+                                                window.alert('Please enter your name.')
+                                            } else {
+                                                this.setState({ nameSet: true, })
+                                            }
+                                        }}
+                                    >
+                                        Get Link
                             </Button>
-                            </>
-                        )}
+                                </>
+                            )}
+                    </div>
 
                 </CardContent>
                 <CardActions>

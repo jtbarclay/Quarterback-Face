@@ -73,7 +73,7 @@ export class App extends Component {
             <Router>
                 <ThemeProvider theme={theme}>
                     <Grid container justify='center' alignItems='center' style={{minWidth: '750px'}}>
-                        <Grid item lg={6} md={8} sm={12}>
+                        <Grid item lg={6} md={8} sm={12} style={{minWidth: '750px'}}>
                             <Route
                                 exact
                                 path='/'

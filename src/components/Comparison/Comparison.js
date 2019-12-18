@@ -15,7 +15,7 @@ export class Comparison extends Component {
             <div>
                 <CardContent>
                     {/* <pre>{JSON.stringify(this.props, null, 2)}</pre> */}
-                    <Paper style={{ maxHeight: 450, overflow: 'auto' }}>
+                    <Paper style={{ maxHeight: 450, overflow: 'scroll' }}>
                         <List>
                             {this.props.reduxState.symmetryReducer.mean && this.props.reduxState.compareReducer[0] && this.props.reduxState.compareReducer.filter(qb => qb.score > this.props.reduxState.symmetryReducer.mean).map(qb => (
                                 <ListItem key={qb.id}>

@@ -10,7 +10,7 @@ export class Results extends Component {
         const results = atob(this.props.match.params.id).split('+');
         return (
             <Grid container justify='center' alignItems='center' style={{ minWidth: '750px' }}>
-                <Grid item lg={8} md={8} sm={12}>
+                <Grid item lg={8} md={8} sm={12} style={{ minWidth: '750px' }}>
                     <Card>
                         <CardContent style={{ minWidth: '600px', textAlign: 'center' }}>
                             <h1>{results[0]}'s Score</h1>
@@ -41,7 +41,7 @@ export class Results extends Component {
                                 />
                             </div>
                         </CardContent>
-                        <CardActions style={{ justifyContent: 'center' }}>
+                        <CardActions style={{ justifyContent: 'center', marginTop: '20px' }}>
                             <a href='/' target='_blank' rel='noopener noreferrer'><NavButton
                                 text='Try it yourself'
                             /></a>
