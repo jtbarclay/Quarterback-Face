@@ -36,13 +36,14 @@ A web app that calculates facial symmetry and compares results to NFL Quarterbac
 
 
 ## Usage
-- Movies display alphabetically 3 at a time. Navigation is done with the `prev` and `next` buttons at the bottom of the page.
+- From the landing page click the Start button to proceed to the Upload page. Select a photo to upload. For best results use a high quality headshot looking directly into the camera. Once your photo preview has loaded click the Next button to continue.
 
-- Clicking on a Movie's poster displays more information about the movie as well as an option to edit that information on the database.
+- You will see a spinning logo while the app is busy crunching the numbers. Once done you will be brough to the individual results page. This radar chart displays the symmetry values calculated from your photo.
 ![Screen Shot](screenshot2.png "Screen Shot")
 
-- Using the search button at the bottom of the page additional movies can be added to the database. Search by movie title, click on the movie card you would like to add, and confirm your selection.
-![Screen Shot](screenshot3.png "Screen Shot")
+- Clicking the Next button will bring you to a comparison view where an average of your individual scores is placed in an ordered list of Quarterbacks.
+
+- The final page prompts you to enter your name, clicking get link will encode your results into a shareable link to send to your friends.
 
 ## Built With
 - React
@@ -51,3 +52,13 @@ A web app that calculates facial symmetry and compares results to NFL Quarterbac
 - express
 - node.js
 - postgreSQL
+- AWS S3 buckets
+- AWS Rekognition API
+- chart.xkcd
+- Simple Statistics
+
+## Calculations
+The method of calculating facial symmetry can be found in `/server/modules/symmetryCalc.js`. (x, y) coordinates of facial features are returned by the AWS Rekognition API. I calculate the midpoints of 6 sets of opposite features and find a linear regression line through those midpoints. The symmetry values returned are the natural logarithm of the difference in distance of each features left and right coordinate from the regression line.
+
+## Other Notes
+This app was created purely for entertainment. In my testing I found the AWS Rekognition API returning different results from the same photo day to day.
